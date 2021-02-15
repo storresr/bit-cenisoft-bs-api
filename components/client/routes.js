@@ -1,23 +1,27 @@
-const express = require('express')
-const router = express.Router()
-const { createClient } = require('./actions')
+const router = require('express').Router()
 
-// GET by ID
-router.get('/:id', (req, res) => {
-  res.send({})
-})
+const { createClient, getClients , showClient , deleteClient , updateClient} = require('./actions')
 
-// POST Create a Client
-router.post('/', createClient)
 
-// PUT Update a Client's info
-router.put('/:id', (req, res) => {
-  res.send({})
-})
+//get Clients
 
-// DELETE by ID
-router.delete('/:id', (req, res) => {
-  res.send('Cliente deleted successfully!')
-})
+router.get('/' , getClients )
+
+//GET by ID
+
+router.get('/:id' , showClient)
+
+//POST create a client 
+
+router.post('/' , createClient)
+
+//PUT Update a client0s info
+
+router.put('/:id' , updateClient )
+
+//DELETE bt ID
+
+
+router.delete('/:id' , deleteClient)
 
 module.exports = router
